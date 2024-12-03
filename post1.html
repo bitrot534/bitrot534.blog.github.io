@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGE Encryption</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>AGE-1.2.0 on OBSD 7.6</h1>
+<p>AGE is an Opensource, modern, minimal encryption option.</p>
+<p>Encryption is way to protect data. 2 methods include: Symmetric Encryption and Asymmetric Encryption. Symmetric relies on a password for protection, while Asymmetric uses a pair of keys, public key and private key. Whatever method you pick, security comes down to a very strong password as weak passwords are compromised. Test out until confortable and think of secure ways to store password locally as well as remotely.</p>
+
+<p>[ SYMMETRIC - ENCRYPT FILE W/ PASSWD ]</p>
+
+<p>$age -p -o password.age password.txt</p>
+
+<p>[ SYMMETRIC - DECRYPT FILE W/ PASSWD TO SDOUT ]</p>
+
+<p>$age -d password.age</p>
+
+<p>[ SYMMETRIC - DECRYPT TO FILE ]</p>
+
+<p>$age -d key.age password.txt.age > password.txt</p>
+
+<p>-----</p>
+
+<p>[ ASYMMETRIC - MAKE PASSWORD PROTECTED AGE KEY AND CREAT THE 2 KEYS ]</p>
+
+<p>$age-keygen | age -p .key age</p>
+<p>Public key:agelyhm4gctwfmrpz87tds1m550wrx6m79y9f2hdzt01ndjnehwjOukqrjpyx5</p>
+
+<p>[ ASYMMETRIC - ENCRYPT FILE ]</p>
+
+<p>$age -r agelyhm4gctwfmrpz87tds1m550wrx6m79y9f2hdzt01ndjnehwjOukqrjpyx5 password.txt > password.txt.age (the long string of random data in this example is the public key from above)</p>
+
+<p>[ ASYMMETRIC - DECRYPT AGE KEY FILE ]</p>
+
+<p>$age -d key.age</p>
+
+<p>[ ASYMMETRIC - DECRYPT TO STOUT ]</p>
+
+<p>$age -d -i key.age password.txt.age</p>
+
+<p>[ ASYMMETRIC - DECRYPT TO FILE ]</p>
+
+<p>$age -d -i key.age password.txt.age > password.txt></p>
+    <a href="index.html" style="color:#DC143C;">Back to Home</a>
+</body>
+</html>
