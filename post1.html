@@ -5,53 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AGE Encryption</title>
     <link rel="stylesheet" href="styles.css">
-<style>
-body {
-        }	
-        pre {
-            background-color: #000000; 
-            color: #B0B0B0;
-            padding: 10px;
-            border: 1px solid #B0B0B0;
-            overflow: auto;
-       	    height: 50px; 
-	}
-    </style>
 </head>
 <body>
     <h1>AGE-1.2.0 on OBSD 7.6</h1>
 <p>AGE is an Opensource encryption option that can replace the older GnuPG.</p>
 <p>Encryption is way to protect data. 2 methods include: Symmetric Encryption and Asymmetric Encryption. Symmetric relies on a password for protection, while Asymmetric uses a pair of keys: a public key and a private key. Whatever method you pick, security comes down to a very strong password as weak passwords are compromised.</p>
-<button onclick="window.open('https://github.com/FiloSottile/age', '_blank')">AGE GitHub Repository Link</button>
+<button onclick="window.open('https://github.com/FiloSottile/age', '_blank')">AGE GitHub Repository</button>
+<button onclick="window.open('https://blog.sandipb.net/2023/07/06/age-encryption-cookbook', '_blank')">More Examples</button>
+<button onclick="window.open('https://www.mankier.com/1/age', '_blank')">Even More Examples</button>
 
-<h2>[ SYMMETRIC ]</h2>
+<h2>[ Documentation relevant to this document ]</h2>
 
-<li><h3>ENCRYPT FILE W/ PASSWD</h3></li> 
-$age -p -o document.age document.txt
+<p>Options:</p>
+<p>-d, --decrypt               Decrypt the input to the output.</p>
+<p>-o, --output OUTPUT         Write the result to the file at path OUTPUT.</p>
+<p>-p, --passphrase            Encrypt with a passphrase.</p>
+<p>-r, --recipient RECIPIENT   Encrypt to the specified RECIPIENT. Can be repeated.</p>
+<p>-i, --identity PATH         Use the identity file at PATH. Can be repeated.</p>
 
-<li><h3>DECRYPT FILE W/ PASSWD TO SDOUT</h3></li> 
+<h2>[ Symmetric ]</h2>
+
+<h3>Encrypt file w/ passwd</h3>
+$age -p -o document.age document.txt 
+
+<h3>Decrypt file SDOUT</h3> 
 $age -d document.age
 
-<li><h3>DECRYPT TO FILE</h3></li>  
-$age -d document.txt.age > document.txt
+<h3>Decrypt to file</h3>  
+$age -d -o document.txt document.age
 
-<h2>[ ASSYMMETRIC ]</h2>
+<p>----------</p>
 
-<li><h3>ENCRYPT WITH PUB AND PRIV KEYS</h3></li>  
+<h2>[ Asymmetric ]</h2>
+
+<h3>Create AGE pub and priv keys w/ passwd</h3>  
 <p>$age-keygen | age -p .key age</p>
 <p>Public key:agelyhm4gctwfmrpz87tds1m550wrx6m79y9f2hdzt01ndjnehwjOukqrjpyx5</p>
 
-<li><h3>ENCRYPT FILE</h3></li>  
-<p>$age -r *Insert Public Key* document.txt > document.txt.age</p>
+<h3>Encrypt file to yourself</h3>  
+<p>$age -r (insert-your-public-key-here) -o document.age  document.txt</p>
 
-<li><h3>DECRYPT AGE KEY FILE</h3></li>  
+<h3>Decrypt AGE private key to SDOUT</h3>  
 $age -d key.age
 
-<li><h3>DECRYPT TO STOUT</h3></li>  
+<h3>Decrypt a file to SDOUT</h3>  
 $age -d -i key.age document.txt.age
 
-<li><h3>DECRYPT TO FILE</h3></li>  
-$age -d -i key.age document.txt.age > document.txt
+<h3>Decrypt to file</h3>  
+<p>$age -d -i key.age -o document.txt document.txt.age</p>
 
 <p><a href="index.html" style="color:#DC143C;">Back to Home</a></p>
 </body>
