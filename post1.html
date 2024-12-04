@@ -5,46 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AGE Encryption</title>
     <link rel="stylesheet" href="styles.css">
+<style>
+body {
+        }	
+        pre {
+            background-color: #000000; 
+            color: #B0B0B0;
+            padding: 10px;
+            border: 1px solid #B0B0B0;
+            overflow: auto;
+       	    height: 50px; 
+	}
+    </style>
 </head>
 <body>
     <h1>AGE-1.2.0 on OBSD 7.6</h1>
-<p>AGE is an Opensource, modern, minimal encryption option.</p>
-<p>Encryption is way to protect data. 2 methods include: Symmetric Encryption and Asymmetric Encryption. Symmetric relies on a password for protection, while Asymmetric uses a pair of keys, public key and private key. Whatever method you pick, security comes down to a very strong password as weak passwords are compromised. Test out until confortable and think of secure ways to store password locally as well as remotely.</p>
+<p>AGE is an Opensource encryption option that can replace the older GnuPG.</p>
+<p>Encryption is way to protect data. 2 methods include: Symmetric Encryption and Asymmetric Encryption. Symmetric relies on a password for protection, while Asymmetric uses a pair of keys: a public key and a private key. Whatever method you pick, security comes down to a very strong password as weak passwords are compromised.</p>
+<button onclick="window.open('https://github.com/FiloSottile/age', '_blank')">AGE GitHub Repository Link</button>
 
-<p>[ SYMMETRIC - ENCRYPT FILE W/ PASSWD ]</p>
+<h2>[ SYMMETRIC ]</h2>
 
-<p>$age -p -o password.age password.txt</p>
+<li><h3>ENCRYPT FILE W/ PASSWD</h3></li> 
+$age -p -o document.age document.txt
 
-<p>[ SYMMETRIC - DECRYPT FILE W/ PASSWD TO SDOUT ]</p>
+<li><h3>DECRYPT FILE W/ PASSWD TO SDOUT</h3></li> 
+$age -d document.age
 
-<p>$age -d password.age</p>
+<li><h3>DECRYPT TO FILE</h3></li>  
+$age -d document.txt.age > document.txt
 
-<p>[ SYMMETRIC - DECRYPT TO FILE ]</p>
+<h2>[ ASSYMMETRIC ]</h2>
 
-<p>$age -d key.age password.txt.age > password.txt</p>
-
-<p>-----</p>
-
-<p>[ ASYMMETRIC - MAKE PASSWORD PROTECTED AGE KEY AND CREAT THE 2 KEYS ]</p>
-
+<li><h3>ENCRYPT WITH PUB AND PRIV KEYS</h3></li>  
 <p>$age-keygen | age -p .key age</p>
 <p>Public key:agelyhm4gctwfmrpz87tds1m550wrx6m79y9f2hdzt01ndjnehwjOukqrjpyx5</p>
 
-<p>[ ASYMMETRIC - ENCRYPT FILE ]</p>
+<li><h3>ENCRYPT FILE</h3></li>  
+<p>$age -r *Insert Public Key* document.txt > document.txt.age</p>
 
-<p>$age -r agelyhm4gctwfmrpz87tds1m550wrx6m79y9f2hdzt01ndjnehwjOukqrjpyx5 password.txt > password.txt.age (the long string of random data in this example is the public key from above)</p>
+<li><h3>DECRYPT AGE KEY FILE</h3></li>  
+$age -d key.age
 
-<p>[ ASYMMETRIC - DECRYPT AGE KEY FILE ]</p>
+<li><h3>DECRYPT TO STOUT</h3></li>  
+$age -d -i key.age document.txt.age
 
-<p>$age -d key.age</p>
+<li><h3>DECRYPT TO FILE</h3></li>  
+$age -d -i key.age document.txt.age > document.txt
 
-<p>[ ASYMMETRIC - DECRYPT TO STOUT ]</p>
-
-<p>$age -d -i key.age password.txt.age</p>
-
-<p>[ ASYMMETRIC - DECRYPT TO FILE ]</p>
-
-<p>$age -d -i key.age password.txt.age > password.txt></p>
-    <a href="index.html" style="color:#DC143C;">Back to Home</a>
+<p><a href="index.html" style="color:#DC143C;">Back to Home</a></p>
 </body>
 </html>
