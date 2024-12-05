@@ -42,9 +42,10 @@
 		<h2>[ Asymmetric ]</h2>
 
 		<h3>Create AGE pub and priv keys w/ passwd</h3>
-		<p>$age-keygen | age -p key.age</p>
+		<p>$age-keygen | age -p -o priv.age</p>
 		<p>Public key:agelyhm4gctwfmrpz87tds1m550wrx6m79y9f2hdzt01ndjnehwjOukqrjpyx5</p>
-
+	 	<p>Enter passphrase (leave empty to autogenerate a secure one):</p>
+		
 		<h3>Encrypt file to yourself</h3>
 		<p>$age -r (insert-your-public-key-here) -o document.age document.txt</p>
 
