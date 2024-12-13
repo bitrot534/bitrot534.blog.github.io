@@ -8,6 +8,7 @@
 	</head>
 	<body>
 		<h1>Encryption: AGE-1.2.0</h1>
+		<a href="index.html" style="color:#DC143C;">Back to Home</a>
 		<p>AGE is an Opensource encryption option that can replace the older GnuPG.</p>
 		<p>
 			Encryption is way to protect data. 2 methods include: Symmetric Encryption and Asymmetric Encryption. Symmetric relies on a password for protection, while Asymmetric uses a pair of keys: a public key and a private key. Whatever
@@ -42,10 +43,10 @@
 		<h2>[ Asymmetric ]</h2>
 
 		<h3>Create AGE pub and priv keys w/ passwd</h3>
-		<p>$age-keygen | age -p -o priv.age</p>
+		<p>$age-keygen | age -p -o key.age</p>
 		<p>Public key:agelyhm4gctwfmrpz87tds1m550wrx6m79y9f2hdzt01ndjnehwjOukqrjpyx5</p>
-	 	<p>Enter passphrase (leave empty to autogenerate a secure one):</p>
-		
+		<p>Enter passphrase (leave empty to autogenerate a secure one):</p>
+
 		<h3>Encrypt file to yourself</h3>
 		<p>$age -r (insert-your-public-key-here) -o document.age document.txt</p>
 
@@ -57,8 +58,7 @@
 
 		<h3>Decrypt to file</h3>
 		<p>$age -d -i key.age -o document.txt document.txt.age</p>
-
-		<p><a href="index.html" style="color:#DC143C;">Back to Home</a></p>
 	</body>
 </html>
+
 

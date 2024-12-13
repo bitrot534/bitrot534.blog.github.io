@@ -1,63 +1,63 @@
 body {
-    background-color: #1c1c1c; 
-    color: #E0E0E0; 
-    font-family: Arial, sans-serif; 
+    background-color: #1c1c1c;
+    color: #E0E0E0;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
 }
 
 h1 {
-    color: #DC143C; 
-    text-align: center; 
-    border-bottom: 2px solid #000000; 
-    padding-bottom: 10px; 
+    color: #DC143C;
+    text-align: center;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 10px;
 }
 
 h2 {
-    color: #B0B0B0; 
+    color: #B0B0B0;
 }
 
 a {
-    color: #B0B0B0; 
-    text-decoration: none; 
+    color: #B0B0B0;
+    text-decoration: none;
 }
 
 a:hover {
-    color: #DC143C; 
-    text-decoration: underline; 
+    color: #DC143C;
+    text-decoration: underline;
 }
 
 nav {
-    text-align: center; 
-    margin: 20px 0; 
+    text-align: center;
+    margin: 20px 0;
 }
 
 nav ul {
-    list-style: none; 
-    padding: 0; 
-    display: flex; 
-    justify-content: center; 
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
 }
 
 nav ul li {
-    margin: 0 15px; 
+    margin: 0 15px;
 }
 
 nav ul li a {
-    color: #B0B0B0; 
-    text-decoration: none; 
+    color: #B0B0B0;
+    text-decoration: none;
 }
 
 nav ul li a:hover {
-    color: #DC143C; 
-    text-decoration: underline; 
+    color: #DC143C;
+    text-decoration: underline;
 }
 
 ul {
-    margin: 20px 0; 
-    padding: 0; 
+    margin: 20px 0;
+    padding: 0;
 }
 
 li {
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
 }
